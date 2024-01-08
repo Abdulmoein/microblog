@@ -32,7 +32,7 @@ def create_app():
                 entry[0], # when we receive the data it's not a list of tiples it's a courcer object like a list of dictionary that is mean if ineed to access for a value i must use eachlist['key'] to i can get a value
                 entry[1],
                 entry[2],
-                datetime.datetime.strptime(entry['date'], '%Y-%m-%d').strftime('%b-%d')
+                datetime.datetime.strptime(entry[2], '%Y-%m-%d').strftime('%b-%d')
                 
             )
             for entry in entries 
