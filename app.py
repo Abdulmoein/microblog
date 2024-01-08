@@ -35,7 +35,7 @@ def create_app():
                 datetime.datetime.strptime(entry['date'], '%Y-%m-%d').strftime('%b-%d')
                 
             )
-            for entry in entries_with_date 
+            for entry in entries 
         ]
         
     # make a loop inside the object docs i mean
