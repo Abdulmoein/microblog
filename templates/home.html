@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Micro Blog</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar__brand">
+        <img
+          class="navbar__logo"
+          src="/static/css/microblog-logo.svg"
+          alt="micro blog logo"
+        />Microblog
+      </div>
+      <nav class="navbar__navigation">
+        <a class="navbar__link" href="#">Recent</a>
+        <a class="navbar__link" href="#">Calendar</a>
+      </nav>
+    </header>
+    <main class="main">
+      <section>
+        <h1>Add new entry</h1>
+
+        <form class="form" action="/home" method="POST">
+          <p class="form__input">
+            <!-- <label class="form_lable" for="entry">Entry contents</label> -->
+            <!-- id must be match the lable -->
+            
+
+            <label class="form_lable" for="title_entry">Title</label>
+
+            <input class="form_textarea" type="text" name="title" id="title_entry">
+
+          
+          </p>
+
+        <form class="form" action="/home" method="POST">
+          <p class="form__input">
+            <label class="form_lable" for="entry">content</label>
+            <!-- id must be match the lable -->
+            <textarea
+              class="form_textarea"
+              name="content"
+              id="entry"
+              aria-label="Entry contents"
+            ></textarea>
+          </p>
+          <button class="form_submit" type="submit">Add entry</button>
+          <br>
+        </form>
+      </section>
+      <section>
+        <h1>Recent posts</h1>
+        {% for entry in entries %}
+        <article class="entry">
+          <header>
+            <h2 class="entry__title">{{ entry[0]}}</h2>
+            <time class="entry__date" datetime= "{{ entry[2] }}"
+              >•{{ entry[3] }}</time>
+          </header>
+          <p>{{ entry[1] }}</p>
+        </article>
+        {% endfor %}
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__content">
+        <section class="footer__left">
+          <a class="footer__item" href="#">Made by ENG.Elarefi</a>
+          <a class="footer__item" href="#"> Check out my other projects</a>
+        </section>
+        <section class="footer__right">
+          <div class="footer__column">
+            <a class="footer__item" href="#">Recent</a>
+            <a class="footer__item" href="#">Calendar</a>
+          </div>
+          <div class="footer__column">
+            <a class="footer__item" href="#">About</a>
+            <a class="footer__item" href="#">How This was Made</a>
+          </div>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
